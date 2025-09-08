@@ -11,9 +11,6 @@ API construída com **NestJS** e **Prisma**, conectada a um banco PostgreSQL no 
 - Consultar jogadores individuais.
 - Consultar os 3 maiores artilheiros.
 - Consultar os 3 jogadores com mais assistências.
-- Consultar jogadores por posição.
-- Consultar os N maiores artilheiros ou assistentes.
-- Consultar estatísticas agregadas da equipe.
 - Armazenamento de informações como:
   - Nome
   - Número da camisa
