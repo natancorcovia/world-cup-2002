@@ -1,18 +1,23 @@
-import { Test, TestingModule } from '@nestjs/testing';
-import { PlayersController } from './players.controller';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { PlayersService } from './players.service';
+import { CreatePlayerDto } from './dto/create-player.dto';
 
-describe('PlayersController', () => {
-  let controller: PlayersController;
+@Controller('players')
+export class PlayersController {
+  constructor(private readonly playersService: PlayersService) {}
 
-  beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      controllers: [PlayersController],
-    }).compile();
+  @Post()
+  create(@Body() data: CreatePlayerDto) {
+    return this.playersService.create(data);
+  }
 
-    controller = module.get<PlayersController>(PlayersController);
-  });
+  @Get()
+  findAll() {
+    return this.playersService.findAll();
+  }
 
-  it('should be defined', () => {
-    expect(controller).toBeDefined();
-  });
-});
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.playersService.findOne(+id);
+  }
+}
