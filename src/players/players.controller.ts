@@ -11,6 +11,16 @@ export class PlayersController {
     return this.playersService.create(data);
   }
 
+  @Get('top-scorers')
+  topScorers() {
+    return this.playersService.topScorers();
+  }
+
+  @Get('top-assists')
+  topAssists() {
+    return this.playersService.topAssists();
+  }
+
   @Get()
   findAll() {
     return this.playersService.findAll();
